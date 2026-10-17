@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FitCore Fitness Studio (demo)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500&display=swap">
+<style>
+:root{--bg:#f1f3f5;--card:#fff;--ink:#14181f;--mut:#566070;--ac:#2b4eff;--ac2:#ff6b3d;--ln:#d5dae1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10141b;--card:#181e28;--ink:#eef1f5;--mut:#9aa5b5;--ac:#6f88ff;--ln:#2b3442;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10141b;--card:#181e28;--ink:#eef1f5;--mut:#9aa5b5;--ac:#6f88ff;--ln:#2b3442;color-scheme:dark}
+html{scroll-padding-top:calc(60px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Barlow,system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:10}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",sans-serif;line-height:1.05;margin:0 0 .5em}
+h1{font-size:clamp(3rem,10vw,6.5rem);font-weight:800}
+h2{font-size:clamp(2rem,5vw,3rem);font-weight:800}
+h3{font-size:1.5rem;font-weight:600}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--card);border-bottom:1px solid var(--ln);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px}
+.logo{font:800 1.6rem "Barlow Condensed",sans-serif;text-decoration:none}
+nav{display:flex;gap:16px;overflow-x:auto;white-space:nowrap}
+nav a{text-decoration:none;color:var(--mut);font-weight:500;padding:6px 0}
+nav a:hover,nav a:focus-visible{color:var(--ac)}
+.demo{background:var(--ac2);color:#14181f;text-align:center;font-size:.9rem;padding:6px 12px}
+section{padding:72px 20px;max-width:1080px;margin:auto}
+.btn{display:inline-block;background:var(--ac);color:#fff;border:0;border-radius:4px;padding:14px 26px;font:600 1.1rem Barlow,sans-serif;text-decoration:none;cursor:pointer}
+:root:not([data-theme="light"]) .btn{color:#10141b}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--ac2);outline-offset:2px}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;min-height:70vh}
+.plate{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--bg) 0 8%,var(--ac) 8% 12%,var(--ink) 12% 30%,var(--ac) 30% 33%,var(--ink) 33% 62%,var(--ac2) 62% 66%,var(--ink) 66%);animation:spin 1.4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes spin{from{transform:rotate(-200deg) scale(.7);opacity:0}}
+@media(prefers-reduced-motion:reduce){.plate{animation:none}html{scroll-behavior:auto}}
+.sub{font-size:1.25rem;color:var(--mut)}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.box{background:var(--card);border:1px solid var(--ln);border-radius:6px;padding:24px}
+.box p:last-child{margin:0}
+.tag{color:var(--mut);font-size:.9rem}
+.price{font:800 2.6rem "Barlow Condensed",sans-serif}
+.box.pop{border:2px solid var(--ac)}
+ul{padding-left:1.1em;margin:0 0 1em}
+details{background:var(--card);border:1px solid var(--ln);border-radius:6px;padding:14px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:500}
+details[open] summary{margin-bottom:10px}
+details p:last-child{margin:0}
+.ig{border-left:4px solid var(--ac2)}
+form{display:grid;gap:14px;max-width:520px}
+label{display:grid;gap:4px;font-weight:500}
+input,textarea{font:inherit;padding:12px;border:1px solid var(--ln);border-radius:4px;background:var(--card);color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.ok{background:var(--card);border:2px solid var(--ac);padding:16px;border-radius:6px}
+footer{padding:32px 20px;text-align:center;color:var(--mut);border-top:1px solid var(--ln)}
+@media(max-width:760px){.hero,.two{grid-template-columns:1fr}.plate{max-width:260px}section{padding:48px 20px}}
+</style></head><body>
+<div class="demo">FitCore is a fictional demonstration project. All people, prices and credentials are examples.</div>
+<header><a class="logo" href="#home">FitCore</a>
+<nav aria-label="Main"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#trainers">Trainers</a><a href="#pricing">Pricing</a><a href="#blog">Blog</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav></header>
+
+<section id="home" class="hero"><div>
+<h1>Strong starts here.</h1>
+<p class="sub">Coaching, classes and nutrition support for beginners and returning lifters. No judgement, no guesswork.</p>
+<p>FitCore is a small studio where every member gets a personal plan in their first week, and a coach who knows their name.</p>
+<div class="row"><a class="btn" href="#contact">Book a free trial</a><a class="btn alt" href="#pricing">Join now</a></div></div>
+<div class="plate" role="img" aria-label="Barbell plate graphic"></div></section>
+
+<section><h2>Why members stay</h2><div class="grid">
+<div class="box"><h3>A plan built for you</h3><p>Your coach sets goals and a weekly schedule that fits your life.</p></div>
+<div class="box"><h3>Beginner-first coaching</h3><p>Every exercise is taught and checked, so you train safely from day one.</p></div>
+<div class="box"><h3>Progress you can see</h3><p>Monthly check-ins track strength, habits and energy, not just weight.</p></div>
+<div class="box"><h3>A friendly floor</h3><p>Small classes and quiet hours mean you never train alone or crowded.</p></div></div></section>
+
+<section id="about"><div class="two"><div><h2>Our story</h2>
+<p>FitCore began when three coaches got tired of watching newcomers quit within a month. Gyms felt loud, confusing and built for people who already knew what to do.</p>
+<p>So we built the opposite: a studio where the first session is a conversation, not a sales pitch.</p>
+<p><strong>Mission:</strong> help ordinary people build strength they can keep for life.</p></div>
+<div><h3>What we believe</h3><ul><li>Consistency beats intensity.</li><li>Technique comes before weight.</li><li>Every body starts somewhere.</li><li>Honest advice over quick fixes.</li></ul>
+<h3>Why choose us</h3><p>Coach-led onboarding, small groups, and clear pricing with no joining fee.</p></div></div></section>
+
+<section id="services"><h2>Services</h2><div class="grid">
+<div class="box"><h3>Personal training</h3><p>One-to-one sessions with a custom programme, form coaching and progress reviews.</p><p class="tag">For: anyone wanting focused guidance or rehab-friendly training.</p><p class="tag">Benefit: faster, safer progress.</p></div>
+<div class="box"><h3>Strength training</h3><p>Barbell and dumbbell programmes that teach the core lifts step by step.</p><p class="tag">For: beginners to intermediate lifters.</p><p class="tag">Benefit: lasting strength and confidence.</p></div>
+<div class="box"><h3>Weight management</h3><p>Training and habit coaching for gradual, sustainable fat loss.</p><p class="tag">For: members who want steady change.</p><p class="tag">Benefit: results without crash dieting.</p></div>
+<div class="box"><h3>Group classes</h3><p>Capped classes of 12: conditioning, mobility and beginner strength.</p><p class="tag">For: people who like energy and company.</p><p class="tag">Benefit: motivation and routine.</p></div>
+<div class="box"><h3>Nutrition guidance</h3><p>Practical meal planning and habit check-ins. General guidance, not medical advice.</p><p class="tag">For: members who want simpler eating.</p><p class="tag">Benefit: more energy and better recovery.</p></div></div></section>
+
+<section id="trainers"><h2>Trainers</h2><p class="tag">Demonstration profiles. Names, credentials and experience are fictional.</p><div class="grid">
+<div class="box"><h3>Aria Menon</h3><p class="tag">Strength and conditioning</p><p>8 years coaching (fictional). Teaches lifting through clear cues and small wins. Helps beginners and busy professionals.</p></div>
+<div class="box"><h3>Dev Kulkarni</h3><p class="tag">Weight management</p><p>6 years coaching (fictional). Focuses on habits before numbers. Helps people who have tried and quit other plans.</p></div>
+<div class="box"><h3>Maya Fernandes</h3><p class="tag">Mobility and group classes</p><p>5 years coaching (fictional). Builds friendly, low-pressure classes. Helps desk workers and returning exercisers.</p></div></div></section>
+
+<section id="pricing"><h2>Pricing</h2><p class="tag">Example prices for demonstration only.</p><div class="grid">
+<div class="box"><h3>Basic</h3><div class="price">₹1,500<span class="tag">/month</span></div><p>Gym floor access and a starter programme.</p><ul><li>Off-peak hours</li><li>One coach check-in</li></ul><p class="tag">Ideal for self-starters.</p><a class="btn alt" href="#contact">Enquire</a></div>
+<div class="box pop"><h3>Standard</h3><div class="price">₹2,800<span class="tag">/month</span></div><p>Full access plus classes and monthly coaching.</p><ul><li>All group classes</li><li>Monthly progress review</li><li>Nutrition guide</li></ul><p class="tag">Ideal for most beginners.</p><a class="btn" href="#contact">Sign up</a></div>
+<div class="box"><h3>Premium</h3><div class="price">₹5,500<span class="tag">/month</span></div><p>Everything in Standard with personal training.</p><ul><li>4 personal sessions</li><li>Weekly check-ins</li><li>Custom nutrition plan</li></ul><p class="tag">Ideal for fast, guided progress.</p><a class="btn alt" href="#contact">Enquire</a></div></div></section>
+
+<section id="blog"><h2>Blog</h2>
+<details><summary>How to start going to the gym as a beginner</summary>
+<p>Starting is the hardest part. A simple plan removes most of the fear.</p><h3>Pick a small schedule</h3><p>Train three days a week for 45 minutes. Add more only when this feels easy.</p><h3>Learn five movements</h3><p>Squat, hinge, push, pull and carry cover most of what you need.</p><h3>Ask for help</h3><p>Coaches expect questions. Book an intro session and bring your goals.</p><p><strong>Conclusion:</strong> Start small and repeat. <a href="#contact">Book a free trial</a> to begin.</p></details>
+<details><summary>Five common workout mistakes and how to avoid them</summary>
+<p>Most setbacks come from a few fixable habits.</p><h3>1. Skipping the warm-up</h3><p>Five minutes of light movement prepares joints and muscles.</p><h3>2. Lifting too heavy too soon</h3><p>Choose a weight that lets you finish every rep with good form.</p><h3>3. Changing plans every week</h3><p>Follow one programme for at least six weeks.</p><h3>4. Ignoring rest</h3><p>Muscles grow during recovery. Sleep and rest days count as training.</p><h3>5. Training without a goal</h3><p>Write one measurable target, such as a first push-up.</p><p><strong>Conclusion:</strong> Fix one mistake at a time. <a href="#contact">Ask a coach to review your routine.</a></p></details>
+<details><summary>How to build a sustainable fitness routine</summary>
+<p>The best routine is the one you can keep doing.</p><h3>Anchor it to your day</h3><p>Pair training with a fixed time, like right after work.</p><h3>Plan for bad weeks</h3><p>Keep a 20-minute fallback session for busy days.</p><h3>Track what matters</h3><p>Note sessions completed, not just weight lost.</p><h3>Find support</h3><p>Group classes and coaches make showing up easier.</p><p><strong>Conclusion:</strong> Consistency is built, not found. <a href="#pricing">See membership plans.</a></p></details></section>
+
+<section id="faq"><h2>FAQ</h2>
+<details><summary>Is this gym suitable for beginners?</summary><p>Yes. Every new member gets a coach-led onboarding session.</p></details>
+<details><summary>What should I bring for my first workout?</summary><p>Comfortable clothes, trainers, a water bottle and a small towel.</p></details>
+<details><summary>Do you offer personal training?</summary><p>Yes. Premium includes four sessions a month, and extra sessions can be added.</p></details>
+<details><summary>What membership plans are available?</summary><p>Basic, Standard and Premium. See the pricing section for details.</p></details>
+<details><summary>Can I book a trial session?</summary><p>Yes. Your first trial session is free. Use the contact form to book.</p></details>
+<details><summary>Are group classes included?</summary><p>Standard and Premium include all classes. Basic members can join for a small fee.</p></details>
+<details><summary>Can I cancel my membership?</summary><p>Yes. Cancel any time with 30 days’ notice (example policy).</p></details>
+<details><summary>How can I contact the gym?</summary><p>Use the form below, or email hello@fitcore.example.</p></details></section>
+
+<section><h2>On social</h2><div class="grid">
+<div class="box ig"><p>New to lifting? Start with three days a week and five core moves. Simple wins. 💪 #FitCoreDemo</p></div>
+<div class="box ig"><p>Your first free trial is waiting. Come meet the coaches. Link in bio.</p></div>
+<div class="box ig"><p>Tip: sleep is part of your programme. Aim for a steady bedtime this week. 😴</p></div>
+<div class="box ig"><p>Group class Thursday: 12 spots, all levels, zero judgement. Save your place.</p></div>
+<div class="box ig"><p>Progress isn’t only the scale. Track your energy, strength and mood too.</p></div></div></section>
+
+<section id="contact"><div class="two"><div><h2>Book your free trial</h2>
+<p>Tell us your goal and we’ll reply within one working day.</p>
+<p><strong>Email:</strong> hello@fitcore.example<br><strong>Phone:</strong> +91 00000 00000<br><strong>Hours:</strong> Mon–Sat 6am–9pm, Sun 8am–1pm<br><strong>Location:</strong> [Studio address placeholder]</p></div>
+<form id="f"><label>Name<input name="n" required autocomplete="name"></label>
+<label>Email<input type="email" name="e" required autocomplete="email"></label>
+<label>Your goal<textarea name="m" rows="4" required placeholder="e.g. build strength, lose weight, try a class"></textarea></label>
+<button class="btn" type="submit">Send enquiry</button><div id="r" role="status"></div></form></div></section>
+<footer>FitCore Fitness Studio is a fictional demo project. © 2026</footer>
+<script>
+document.getElementById('f').addEventListener('submit',function(ev){ev.preventDefault();var n=this.n.value.trim();document.getElementById('r').innerHTML='<div class="ok"></div>';document.querySelector('#r .ok').textContent='Thanks, '+n+'. This is a demo form, so your enquiry was not sent.';this.reset()});
+</script></body></html>
